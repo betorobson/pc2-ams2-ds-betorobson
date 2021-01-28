@@ -1,4 +1,3 @@
-
 var sessionMembersBetoRobson = {
 	init: function(){
 		sessionMembersBetoRobson.memberActions();
@@ -128,20 +127,36 @@ var sessionMembersBetoRobson = {
 			return;
 		}
 
-		for(var i=11; i>0; i--){
-			(function(i){
-				setTimeout(function(){
-					var timer = 11 - i;
-					if(timer === 0){
-                        sessionMembersBetoRobson.sendMessage(null, 'GO GO GO GO GO GO');
-                        sessionMembersBetoRobson.sendMessage(null, 'GO GO GO GO GO GO');
-                        sessionMembersBetoRobson.sendMessage(null, 'GO GO GO GO GO GO');
-					}else{
-					    sessionMembersBetoRobson.sendMessage(null, 'Launch in ' + timer +  ' seconds');
-					}
-				}, i * 1000);
-			})(i)
-		}
+		$.get(`/api/session/send_chat?message=!!!!!!!!`)
+			.then(() => $.get(`/api/session/send_chat?message=${encodeURIComponent('Launch in 10 seconds')}`)
+				.then(() => {
+
+					setTimeout(function(){
+			      $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
+			      $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
+			      $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
+					}, 10000);
+
+				})
+			);
+
+		// for(var i=11; i>0; i--){
+		// 	(function(i){
+		// 		setTimeout(function(){
+		// 			var timer = 11 - i;
+		// 			if(timer === 0){
+  //                       $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
+  //                       $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
+  //                       $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
+  //                       $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
+  //                       $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
+		// 			}else{
+		// 				$.get(`/api/session/send_chat?message=!!!!!!!!`)
+		// 					.then(() => $.get(`/api/session/send_chat?message=${encodeURIComponent('Launch in ' + timer +  ' seconds')}`));
+		// 			}
+		// 		}, i * 1000);
+		// 	})(i)
+		// }
 
 	},
 
@@ -171,10 +186,10 @@ var sessionMembersBetoRobson = {
 				setTimeout(function(){
 
 					if(refid){
-						$.get(`/api/session/send_chat?refid=${refid}&message=!!!!!!!!!!!!!!!`)
+						$.get(`/api/session/send_chat?refid=${refid}&message=!!!!!!!!!!`)
 							.then(() => $.get(`/api/session/send_chat?refid=${refid}&message=${nMessage}`));
 					}else{
-						$.get(`/api/session/send_chat?message=!!!!!!!!!!!!!!!`)
+						$.get(`/api/session/send_chat?message=!!!!!!!!!!`)
 							.then(() => $.get(`/api/session/send_chat?message=${nMessage}`));
 					}
 

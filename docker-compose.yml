@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  ams2-pc2-server:
-    image: betorobson/ams2-pc2-server
+  pc2-ams-server:
+    image: betorobson/pc2-ams-server
     environment:
       # - STEAM_APP=pc2ds
       - STEAM_APP=ams2ds

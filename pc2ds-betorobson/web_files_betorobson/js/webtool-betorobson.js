@@ -12,26 +12,36 @@ var sessionMembersBetoRobson = {
 		   </form>
 
 		   <div>
-			   <button
-				   class="btn btn-success"
-					 style="margin: 8px"
-				   onclick="sessionMembersBetoRobson.launch('prepare', this)"
-			   >Prepare for Launch</button>
-			   <button
-				   class="btn btn-success"
-					 style="margin: 8px"
-				   onclick="sessionMembersBetoRobson.launch('go', this)"
-			   >GO GO GO</button>
-			   <button
-				   class="btn btn-info"
-					 style="margin: 8px"
-				   onclick="sessionMembersBetoRobson.nextSession()"
-			   >Jump to next session</button>
-			   <button
-				   class="btn btn-danger"
-					 style="margin: 8px"
-				   onclick="sessionMembersBetoRobson.restart()"
-			   >Restart server and drop everyone</button>
+				<button
+					class="btn btn-success"
+					style="margin: 8px"
+					onclick="sessionMembersBetoRobson.launch('prepare', this)"
+				>Prepare for Launch</button>
+				<button
+					class="btn btn-success"
+					style="margin: 8px"
+					onclick="sessionMembersBetoRobson.launch('go', this)"
+				>GO GO GO</button>
+				<button
+						style="margin: 8px"
+						class="btn btn-danger"
+						onclick="sessionMembersBetoRobson.flags('Safety Car SLOW DOWN!!!')"
+				>Safety car</button>
+				<button
+						style="margin: 8px"
+						class="btn btn-danger"
+						onclick="sessionMembersBetoRobson.flags('Virtual Safety Car SLOW DOWN!!!')"
+				>Virtual Safety car</button>
+				<button
+					class="btn btn-info"
+					style="margin: 8px"
+					onclick="sessionMembersBetoRobson.nextSession()"
+				>Jump to next session</button>
+				<button
+					class="btn btn-danger"
+					style="margin: 8px"
+					onclick="sessionMembersBetoRobson.restart()"
+				>Restart server and drop everyone</button>
 		   </div>
 
         </div>`);
@@ -66,12 +76,26 @@ var sessionMembersBetoRobson = {
 			`);
 		});
 	},
+
 	sendCustomMessage: function(refid, message){
-		   var customMessage = $(message).find('input').val();
-		   $(message).find('input').val('');
-		   this.sendMessage(refid, customMessage);
-		   return false;
+		var customMessage = $(message).find('input').val();
+		$(message).find('input').val('');
+		this.sendMessage(refid, customMessage);
+		return false;
 	},
+
+	flags: function(message){
+
+		var r = confirm(message + '?');
+
+		if(!r){
+			return;
+		}
+
+		this.sendMessage(null, message, undefined, 3);
+
+	},
+
 	kick: function(refid, num){
 
 		var r = false;
@@ -99,7 +123,7 @@ var sessionMembersBetoRobson = {
 			return;
 		}
 
-		sessionMembersBetoRobson.sendMessage(null, 'Jumping to next sesstion in 5 seconds!');
+		sessionMembersBetoRobson.sendMessage(null, 'Jumping to next sesstion!');
 
 		setTimeout(function(){
 			$.get('/api/session/advance');
@@ -137,11 +161,11 @@ var sessionMembersBetoRobson = {
 
 		if(type === 'prepare'){
 		$.get(`/api/session/send_chat?message=!!!!!!!!`)
-			.then(() => $.get(`/api/session/send_chat?message=${encodeURIComponent('Launch in 10 seconds')}`));
+			.then(() => $.get(`/api/session/send_chat?message=${encodeURIComponent('Prepare for launch !!!')}`));
 
 		}else if(type === 'go'){
 
-			$.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
+			$.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO !!!')}`)
 
 		}
 
@@ -180,7 +204,7 @@ var sessionMembersBetoRobson = {
 							.then(() => $.get(`/api/session/send_chat?message=${nMessage}`));
 					}
 
-				}, i * 3000);
+				}, (i === 1 ? 0 : i * 3000) );
 
 			})(i);
 

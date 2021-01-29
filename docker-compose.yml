@@ -9,11 +9,14 @@ services:
     build:
       context: .
     volumes:
-      - ./root/pcars2:/pcars2
+      - ./pc2ds-betorobson/web_files_betorobson:/app/pc2ds/web_files_betorobson
+      - ./pc2ds-betorobson/web_files_betorobson:/app/ams2ds/web_files_betorobson
       # - node_modules:/pcars2
     ports:
       - 8766:8766/udp
       - 27015:27015/udp
       - 27016:27016/udp
       - 10000:9000
+# volumes:
+#   volume-app:
     # command: npm run container:dev

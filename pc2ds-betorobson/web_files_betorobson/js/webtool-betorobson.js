@@ -8,20 +8,28 @@ var sessionMembersBetoRobson = {
         $('#serverDetails').prepend(`<div>
 
 		   <form onsubmit="return sessionMembersBetoRobson.sendCustomMessage(null, this)">
-			   <input type="text" placeholder="Message to everyone" />
+			   <input class="form-control" type="text" placeholder="Message to everyone" />
 		   </form>
 
 		   <div>
 			   <button
 				   class="btn btn-success"
-				   onclick="sessionMembersBetoRobson.launch10()"
-			   >Launch in 10 seconds</button>
+					 style="margin: 8px"
+				   onclick="sessionMembersBetoRobson.launch('prepare', this)"
+			   >Prepare for Launch</button>
+			   <button
+				   class="btn btn-success"
+					 style="margin: 8px"
+				   onclick="sessionMembersBetoRobson.launch('go', this)"
+			   >GO GO GO</button>
 			   <button
 				   class="btn btn-info"
+					 style="margin: 8px"
 				   onclick="sessionMembersBetoRobson.nextSession()"
 			   >Jump to next session</button>
 			   <button
 				   class="btn btn-danger"
+					 style="margin: 8px"
 				   onclick="sessionMembersBetoRobson.restart()"
 			   >Restart server and drop everyone</button>
 		   </div>
@@ -117,46 +125,25 @@ var sessionMembersBetoRobson = {
 
 	},
 
-	launch10: function(){
+	launch: function(type, elem){
 
 		var r = false;
 
-	    r = confirm('Launch in 10 seconds?');
+	    r = confirm($(elem).text() + '?');
 
 		if(!r){
 			return;
 		}
 
+		if(type === 'prepare'){
 		$.get(`/api/session/send_chat?message=!!!!!!!!`)
-			.then(() => $.get(`/api/session/send_chat?message=${encodeURIComponent('Launch in 10 seconds')}`)
-				.then(() => {
+			.then(() => $.get(`/api/session/send_chat?message=${encodeURIComponent('Launch in 10 seconds')}`));
 
-					setTimeout(function(){
-			      $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
-			      $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
-			      $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
-					}, 10000);
+		}else if(type === 'go'){
 
-				})
-			);
+			$.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
 
-		// for(var i=11; i>0; i--){
-		// 	(function(i){
-		// 		setTimeout(function(){
-		// 			var timer = 11 - i;
-		// 			if(timer === 0){
-  //                       $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
-  //                       $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
-  //                       $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
-  //                       $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
-  //                       $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO')}`)
-		// 			}else{
-		// 				$.get(`/api/session/send_chat?message=!!!!!!!!`)
-		// 					.then(() => $.get(`/api/session/send_chat?message=${encodeURIComponent('Launch in ' + timer +  ' seconds')}`));
-		// 			}
-		// 		}, i * 1000);
-		// 	})(i)
-		// }
+		}
 
 	},
 

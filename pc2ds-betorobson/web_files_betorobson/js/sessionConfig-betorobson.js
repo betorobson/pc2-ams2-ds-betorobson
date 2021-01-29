@@ -6,9 +6,9 @@ var sessionConfigBetoRobson = {
 
         var submitSessionWrapper = $('#mainContainer');
 
-        submitSessionWrapper.append('<input text="" id="favoriteSession" placeholder="Favorite" size="40" maxlength="40" />')
+        submitSessionWrapper.append('<input text="" id="favoriteSession" class="form-control" placeholder="Favorite" size="40" maxlength="40" />')
         submitSessionWrapper.append('<ul style="padding-top: 20px;" id="favorites"></ul>');
-        submitSessionWrapper.append('<form onsubmit="return sessionConfigBetoRobson.saveFavoriteList()">Favorite list debug<input type="text" id="favoriteListDebug" /></form>');
+        submitSessionWrapper.append('<form onsubmit="return sessionConfigBetoRobson.saveFavoriteList()">Favorite list debug<input type="text" class="form-control" id="favoriteListDebug" /></form>');
 
         sessionConfigBetoRobson.setFavoriteListDebug();
 
@@ -50,7 +50,7 @@ var sessionConfigBetoRobson = {
 
         menu.prepend(`
             <form onsubmit="return sessionConfigBetoRobson.chat()">
-                <input type="text" placeholder="chat" style="width:100%;margin-top: 8px;" id="chatMessage" />
+                <input type="text" placeholder="chat" class="form-control" style="width:100%;margin-top: 8px;" id="chatMessage" />
             </form>
         `);
 

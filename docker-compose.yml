@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  ams2-pc2-server:
+    image: betorobson/ams2-pc2-server
+    environment:
+      - STEAM_APP=pc2ds
+      # - STEAM_APP=ams2ds
+    build:
+      context: .
+    volumes:
+      - ./root/pcars2:/pcars2
+      # - node_modules:/pcars2
+    ports:
+      - 8766:8766/udp
+      - 27015:27015/udp
+      - 27016:27016/udp
+      - 10000:9000
+    # command: npm run container:dev

@@ -1,6 +1,6 @@
 # Project Cars 2 and Automobilista 2 Dedicated Server Docker
 
-This is docker container for Project Cars 2 and Automobilista 2 dedicated serve with some extra features on admin web panel
+This is a Docker image for Project Cars 2 and Automobilista 2 dedicated serve with some extra features on admin web panel
 
 ## Set env STEAM_APP
 ```

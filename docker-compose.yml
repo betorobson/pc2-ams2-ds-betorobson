@@ -9,10 +9,10 @@ services:
       - STEAM_APP=ams2ds
     build:
       context: .
-    volumes:
-      - ./pc2ds-betorobson/web_files_betorobson:/app/pc2ds/web_files_betorobson
-      - ./pc2ds-betorobson/web_files_betorobson:/app/ams2ds/web_files_betorobson
-      # - node_modules:/pcars2
+    # ONLY FOR LOCAL DEVELOPMENT
+    # volumes:
+    #   - ./pc2ds-betorobson/web_files_betorobson:/app/pc2ds/web_files_betorobson
+    #   - ./pc2ds-betorobson/web_files_betorobson:/app/ams2ds/web_files_betorobson
     ports:
       - 8766:8766/udp
       - 27015:27015/udp

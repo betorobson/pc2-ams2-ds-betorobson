@@ -5,46 +5,60 @@ var sessionMembersBetoRobson = {
 	},
 
 	sessionActions: function(){
-        $('#serverDetails').prepend(`<div>
+		$('#serverDetails').prepend(`<div>
 
-		   <form onsubmit="return sessionMembersBetoRobson.sendCustomMessage(null, this)">
-			   <input class="form-control" type="text" placeholder="Message to everyone" />
-		   </form>
+			<form onsubmit="return sessionMembersBetoRobson.sendCustomMessage(null, this)">
+				<input class="form-control" type="text" placeholder="Message to everyone" />
+			</form>
 
-		   <div>
-				<button
-					class="btn btn-success"
-					style="margin: 8px"
-					onclick="sessionMembersBetoRobson.launch('prepare', this)"
-				>Prepare for Launch</button>
-				<button
-					class="btn btn-success"
-					style="margin: 8px"
-					onclick="sessionMembersBetoRobson.launch('go', this)"
-				>GO GO GO</button>
-				<button
-						style="margin: 8px"
-						class="btn btn-danger"
-						onclick="sessionMembersBetoRobson.flags('Safety Car SLOW DOWN!!!')"
-				>Safety car</button>
-				<button
-						style="margin: 8px"
-						class="btn btn-danger"
-						onclick="sessionMembersBetoRobson.flags('Virtual Safety Car SLOW DOWN!!!')"
-				>Virtual Safety car</button>
-				<button
-					class="btn btn-info"
-					style="margin: 8px"
-					onclick="sessionMembersBetoRobson.nextSession()"
-				>Jump to next session</button>
-				<button
-					class="btn btn-danger"
-					style="margin: 8px"
-					onclick="sessionMembersBetoRobson.restart()"
-				>Restart server and drop everyone</button>
-		   </div>
+			<div>
 
-        </div>`);
+			<button
+				class="btn btn-success"
+				style="margin: 8px"
+				onclick="sessionMembersBetoRobson.launch('prepare', this)"
+			>Prepare for Launch</button>
+
+			<button
+				class="btn btn-success"
+				style="margin: 8px"
+				onclick="sessionMembersBetoRobson.launch('go', this)"
+			>GO GO GO</button>
+
+			<button
+					style="margin: 8px"
+					class="btn btn-warning"
+					onclick="sessionMembersBetoRobson.flags('Safety Car OUT SLOW DOWN !!!')"
+			>Safety car OUT</button>
+
+			<button
+					style="margin: 8px"
+					class="btn btn-warning"
+					onclick="sessionMembersBetoRobson.flags('Safety Car IN THIS LAP !!!')"
+			>Safety car IN</button>
+
+			<button
+					style="margin: 8px"
+					class="btn btn-warning"
+					onclick="sessionMembersBetoRobson.flags('VIRTUAL Safety Car SLOW DOWN!!!')"
+			>VIRTUAL Safety car</button>
+
+			<button
+				class="btn btn-info"
+				style="margin: 8px"
+				onclick="sessionMembersBetoRobson.nextSession()"
+			>Jump to next session</button>
+
+			<button
+				class="btn btn-danger"
+				style="margin: 8px"
+				onclick="sessionMembersBetoRobson.restart()"
+			>Restart server and drop everyone</button>
+
+			</div>
+
+		</div>`);
+
 	},
 
 	memberActions: function(){
@@ -160,12 +174,14 @@ var sessionMembersBetoRobson = {
 		}
 
 		if(type === 'prepare'){
-		$.get(`/api/session/send_chat?message=!!!!!!!!`)
-			.then(() => $.get(`/api/session/send_chat?message=${encodeURIComponent('Prepare for launch !!!')}`));
+
+			$.get(`/api/session/send_chat?message=!!!!!!!!`)
+				.then(() => $.get(`/api/session/send_chat?message=${encodeURIComponent('Prepare for launch !!!')}`));
 
 		}else if(type === 'go'){
 
-			$.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO !!!')}`)
+			$.get(`/api/session/send_chat?message=!!!!!!!!`)
+				.then(() => $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO !!!')}`));
 
 		}
 
@@ -204,7 +220,7 @@ var sessionMembersBetoRobson = {
 							.then(() => $.get(`/api/session/send_chat?message=${nMessage}`));
 					}
 
-				}, (i === 1 ? 0 : i * 3000) );
+				}, (i === 1 ? 0 : (i - 1) * 2000) );
 
 			})(i);
 

@@ -13,7 +13,12 @@ STEAM_APP=ams2ds
 
 ## Running local
 ```
-docker-compose up --build
+docker-compose -f docker-compose.yml -f comp-ams2-local.yml up --build
+```
+
+## Build Production Version
+```
+docker-compose -f docker-compose.yml -f comp-ams2.yml up --build
 ```
 
 ## Admin panel

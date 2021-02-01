@@ -4,9 +4,9 @@ services:
   pc2-ams-server:
     image: betorobson/pc2-ams-server
     privileged: true
-    environment:
-      # - STEAM_APP=pc2ds
-      - STEAM_APP=ams2ds
+    # environment:
+    #   # - STEAM_APP=pc2ds
+    #   - STEAM_APP=ams2ds
     build:
       context: .
     # ONLY FOR LOCAL DEVELOPMENT

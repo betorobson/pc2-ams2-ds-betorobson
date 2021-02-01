@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  pc2-ams-server:
+    image: betorobson/pc2-ams-server
+    environment:
+      - STEAM_APP=ams2ds
+    volumes:
+      - ./pc2ds-betorobson/web_files_betorobson:/app/ams2ds/web_files_betorobson
+    ports:
+      - 8766:8766/udp
+      - 27015:27015/udp
+      - 27016:27016/udp
+      - 10000:9000
+# volumes:
+#   volume-app:
+    # command: npm run container:dev

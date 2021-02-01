@@ -164,8 +164,9 @@ var sessionMembersBetoRobson = {
 		sessionMembersBetoRobson.sendMessage(null, 'Restart server and drop everyone in 5 seconds!');
 
 		setTimeout(function(){
-			$.get('/api/restart');
-		}, 10000);
+			$.get('/api/restart')
+				.then(() => $.get('/api/session/set_next_attributes?session_VehicleModelId=1785300635&session_TrackId=-559709709&session_RaceLength=10&session_RaceDateHour=0&session_RaceWeatherSlots=0&session_RaceWeatherProgression=1&session_RaceDateProgression=0&session_RaceFormationLap=0&session_RaceMandatoryPitStops=0&session_RaceRollingStart=0&session_PracticeLength=30&session_PracticeDateHour=0&session_PracticeWeatherSlots=0&session_PracticeWeatherProgression=1&session_PracticeDateProgression=0&session_QualifyLength=15&session_QualifyDateHour=0&session_QualifyWeatherSlots=0&session_QualifyWeatherProgression=1&session_QualifyDateProgression=0&session_AllowedViews=0&session_DamageType=1&session_FuelUsageType=2&session_TireWearType=8&session_ManualPitStops=0&session_OpponentDifficulty=0&session_VehicleClassId=0&session_MultiClassSlots=0&session_MinimumOnlineRank=0&session_MinimumOnlineStrength=100&session_PenaltiesType=1&session_AllowablePenaltyTime=0&session_DriveThroughPenalty=0&session_PitWhiteLinePenalty=0&session_ServerControlsVehicleClass=1&session_ServerControlsTrack=1&session_ServerControlsVehicle=0&session_GridSize=32&session_MaxPlayers=31&session_GridLayout=0&session_Flags=17433832&'));
+		}, 5000);
 
 	},
 

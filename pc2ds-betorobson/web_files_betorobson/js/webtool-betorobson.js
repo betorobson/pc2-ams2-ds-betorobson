@@ -67,6 +67,12 @@ var sessionMembersBetoRobson = {
 			var num = $(member).attr('id').replace(/row_members_/,'');
 			$(member).prev().css('cursor', 'pointer');
 			$(member).prev().on('click', function(){
+				$(member).prev().find('td:nth-child(2)').html(
+					$(member).prev().find('td:nth-child(2)').text()
+				);
+				$(member).prev().find('td:nth-child(7)').html(
+					$(member).prev().find('td:nth-child(7) a').text()
+				);
 				javascript:webtool.toggleRow('#' + $(member).attr('id'));
 			});
 			$(member).find('td').prepend(`
@@ -175,13 +181,11 @@ var sessionMembersBetoRobson = {
 
 		if(type === 'prepare'){
 
-			$.get(`/api/session/send_chat?message=!!!!!!!!`)
-				.then(() => $.get(`/api/session/send_chat?message=${encodeURIComponent('Prepare for launch !!!')}`));
+			$.get(`/api/session/send_chat?message=${encodeURIComponent('--- ||| Prepare for launch ||| --- ')}`)
 
 		}else if(type === 'go'){
 
-			$.get(`/api/session/send_chat?message=!!!!!!!!`)
-				.then(() => $.get(`/api/session/send_chat?message=${encodeURIComponent('GO GO GO GO GO GO GO GO GO !!!')}`));
+			$.get(`/api/session/send_chat?message=${encodeURIComponent('--- ||| GO GO GO GO GO GO ||| --- ')}`)
 
 		}
 
@@ -189,7 +193,7 @@ var sessionMembersBetoRobson = {
 
 	sendMessage: function(refid, message, num, times){
 
-		var nMessage = encodeURIComponent('!!!!! ' + message);
+		var nMessage = encodeURIComponent(' --- ||| ' + message + ' ||| --- ');
 
 		var r = false;
 
@@ -205,7 +209,6 @@ var sessionMembersBetoRobson = {
 			var times = 1;
 		}
 
-
 		for(var i=1; i<=times; i++){
 
 			(function(i){
@@ -213,11 +216,9 @@ var sessionMembersBetoRobson = {
 				setTimeout(function(){
 
 					if(refid){
-						$.get(`/api/session/send_chat?refid=${refid}&message=!!!!!!!!!!`)
-							.then(() => $.get(`/api/session/send_chat?refid=${refid}&message=${nMessage}`));
+						$.get(`/api/session/send_chat?refid=${refid}&message=${nMessage}`);
 					}else{
-						$.get(`/api/session/send_chat?message=!!!!!!!!!!`)
-							.then(() => $.get(`/api/session/send_chat?message=${nMessage}`));
+						$.get(`/api/session/send_chat?message=${nMessage}`);
 					}
 
 				}, (i === 1 ? 0 : (i - 1) * 2000) );

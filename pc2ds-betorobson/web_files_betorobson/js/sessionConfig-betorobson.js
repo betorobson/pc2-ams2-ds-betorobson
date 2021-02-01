@@ -179,7 +179,7 @@ $(document).ready(sessionConfigBetoRobson.init);
         if(!data){
 
         // Global Flags variable is set to 0 in each "submit" request.
-        flags = 0;
+        flags = 16777216;
         // Getting all the yes/no radio buttons with the "flag" class name.
         // Flags is added to the URL later on, as there are other values to be added
         $("#" + sessionToModify + "Session input.flag:checked").each(function (index) {

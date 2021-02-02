@@ -49,8 +49,8 @@ RUN tar -zxf pc2ds.tar.gz && \
 RUN tar -zxf ams2ds.30012021.tar.gz && \
     rm ams2ds.30012021.tar.gz
 
-COPY pc2ds-betorobson/ /app/pc2ds/
-COPY pc2ds-betorobson/ /app/ams2ds/
+COPY ams2ds-pc2ds-betorobson/ /app/pc2ds/
+COPY ams2ds-pc2ds-betorobson/ /app/ams2ds/
 
 RUN chmod +x pc2ds/DedicatedServerCmd.elf
 RUN chmod +x pc2ds.sh ams2ds.sh

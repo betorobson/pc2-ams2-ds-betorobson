@@ -19,6 +19,7 @@ pass: admin
  * I suggest you change it in server.cfg
 
 ## To run in a Docker container
+
 ### Set env STEAM_APP
 ```
 # Project Cars 2
@@ -42,4 +43,13 @@ docker-compose -f docker-compose.yml -f comp-ams2.yml up --build
 http://localhost:10000
 
 user: admin
-pass: admin
+pass: fm123
+
+### Create AWS EC2 Instance
+```
+// create
+$ docker-machine create --driver amazonec2 --amazonec2-region sa-east-1 --amazonec2-instance-type t2.micro instance-name
+
+// reconnect
+ eval $(docker-machine env instance-name)
+```

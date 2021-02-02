@@ -1,4 +1,7 @@
+
 FROM ubuntu:20.10
+
+ARG servername
 
 # Install prerequisites
 RUN apt-get update \
@@ -51,6 +54,14 @@ RUN tar -zxf ams2ds.30012021.tar.gz && \
 
 COPY ams2ds-pc2ds-betorobson/ /app/pc2ds/
 COPY ams2ds-pc2ds-betorobson/ /app/ams2ds/
+
+COPY ./servers/${servername}.cfg/ /app/pc2ds/
+COPY ./servers/${servername}.cfg/ /app/ams2ds/
+
+RUN cat /app/pc2ds/${servername}.cfg >> /app/pc2ds/server.cfg \
+    && cat /app/ams2ds/${servername}.cfg >> /app/ams2ds/server.cfg
+
+RUN cat /app/ams2ds/server.cfg
 
 RUN chmod +x pc2ds/DedicatedServerCmd.elf
 RUN chmod +x pc2ds.sh ams2ds.sh

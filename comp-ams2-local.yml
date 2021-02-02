@@ -1,8 +1,10 @@
-version: '3'
+version: '3.8'
 
 services:
   pc2-ams-server:
     image: betorobson/pc2-ams-server
+    build:
+      context: ./
     environment:
       - STEAM_APP=ams2ds
     volumes:

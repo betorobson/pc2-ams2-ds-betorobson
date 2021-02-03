@@ -4,15 +4,15 @@ This is a Docker image for Project Cars 2 and Automobilista 2 dedicated serve wi
 
 ## If you want only the custom panel
 
-Copy folder `pc2ds-betorobson` into <StemLibraryFolder>/stemapps/common/Automobilista 2 - Dedicated Server
+Copy folder `pc2ds-betorobson` into `<StemLibraryFolder>/stemapps/common/Automobilista 2 - Dedicated Server`
 
 Overwrite server.cfg
 
 Run DedicatedServerCmd.exe
 
-For local browser open: http://localhost:9000
+For local browser open: `http://localhost:9000`
 
-For remote browser open: http://<public-ip>:9000
+For remote browser open: `http://<public-ip>:9000`
 
 user: admin
 pass: admin

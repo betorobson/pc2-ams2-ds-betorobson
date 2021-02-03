@@ -1,1 +1,2 @@
-servers
+servers/*
+!servers/default

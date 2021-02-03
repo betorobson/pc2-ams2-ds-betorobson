@@ -20,6 +20,25 @@ pass: admin
 
 ## To run in a Docker container
 
+### Create your server configuration in AWS EC2
+
+Install AWS CLI
+
+Configure your AWS credentials
+
+Create a EC2 instance named for example, `myserver`
+
+Make a copy of /server/default/ folder to your server. Ex.: /server/myserver/
+
+Change files names from default to myserver.cfg, myserver.yml, myserver.sh
+
+Inside eache file, change references from default to myserver
+
+Run it
+```
+$ ./servers/myserver/myserver.sh
+```
+
 ### Set env STEAM_APP
 ```
 # Project Cars 2

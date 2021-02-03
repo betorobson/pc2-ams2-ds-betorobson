@@ -8,7 +8,7 @@ services:
     environment:
       - STEAM_APP=ams2ds
     volumes:
-      - ./pc2ds-betorobson/web_files_betorobson:/app/ams2ds/web_files_betorobson
+      - ./ams2ds-pc2ds-betorobson/web_files_betorobson:/app/ams2ds/web_files_betorobson
     ports:
       - 8766:8766/udp
       - 27015:27015/udp

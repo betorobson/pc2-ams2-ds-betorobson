@@ -50,19 +50,19 @@ STEAM_APP=ams2ds
 
 ### Running local
 ```
-docker-compose -f docker-compose.yml -f comp-ams2-local.yml up --build
+$ ./run-local.sh
 ```
 
 ### Build Production Version
 ```
-docker-compose -f docker-compose.yml -f comp-ams2.yml up --build
+$ ./servers/your-custom-server-name/your-custom-server-name.sh
 ```
 
 ### Admin panel
 http://localhost:10000
 
 user: admin
-pass: fm123
+pass: default123
 
 ### Create AWS EC2 Instance
 ```

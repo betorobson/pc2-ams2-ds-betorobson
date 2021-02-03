@@ -55,8 +55,8 @@ RUN tar -zxf ams2ds.30012021.tar.gz && \
 COPY ams2ds-pc2ds-betorobson/ /app/pc2ds/
 COPY ams2ds-pc2ds-betorobson/ /app/ams2ds/
 
-COPY ./servers/${servername}.cfg/ /app/pc2ds/
-COPY ./servers/${servername}.cfg/ /app/ams2ds/
+COPY ./servers/${servername}/${servername}.cfg/ /app/pc2ds/
+COPY ./servers/${servername}/${servername}.cfg/ /app/ams2ds/
 
 RUN cat /app/pc2ds/${servername}.cfg >> /app/pc2ds/server.cfg \
     && cat /app/ams2ds/${servername}.cfg >> /app/ams2ds/server.cfg

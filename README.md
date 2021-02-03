@@ -71,4 +71,8 @@ $ docker-machine create --driver amazonec2 --amazonec2-region sa-east-1 --amazon
 
 // reconnect
  eval $(docker-machine env instance-name)
+
+// Regenerate Certs
+$ docker-machine regenerate-certs instance-name
+
 ```

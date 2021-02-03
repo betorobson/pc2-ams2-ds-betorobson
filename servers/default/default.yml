@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  pc2-ams-server:
+    image: betorobson/pc2-ams-server
+    build:
+      args:
+        servername: default
+    # environment:
+    #   - STEAM_APP=ams2ds
+    #   - SERVER_NAME=foca

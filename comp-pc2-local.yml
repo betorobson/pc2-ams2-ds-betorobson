@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  pc2-ams-server:
+    image: betorobson/pc2-ams-server
+    build:
+      context: ./
+    environment:
+      - STEAM_APP=pc2ds
+    volumes:
+      - ./ams2ds-pc2ds-betorobson/web_files_betorobson:/app/pc2ds/web_files_betorobson
+    ports:
+      - 8766:8766/udp
+      - 27015:27015/udp
+      - 27016:27016/udp
+      - 10000:9000

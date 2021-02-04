@@ -61,7 +61,7 @@ COPY ./servers/${servername}/${servername}.cfg/ /app/ams2ds/
 RUN cat /app/pc2ds/${servername}.cfg >> /app/pc2ds/server.cfg \
     && cat /app/ams2ds/${servername}.cfg >> /app/ams2ds/server.cfg
 
-RUN cat /app/ams2ds/server.cfg
+RUN cat /app/${STEAM_APP}/server.cfg
 
 RUN chmod +x pc2ds/DedicatedServerCmd.elf
 RUN chmod +x pc2ds.sh ams2ds.sh

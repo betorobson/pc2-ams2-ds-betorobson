@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  pc2-ams-server:
+    image: betorobson/pc2-ams-server
+    environment:
+      - STEAM_APP=pc2ds

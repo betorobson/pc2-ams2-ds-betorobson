@@ -164,7 +164,7 @@ var sessionConfig = {
         maxGridSize = parseInt( maxGridSizeEl.val() );
         if( currentMaxOpponents >= maxGridSize )
         {
-            $("#" + gameSession + "MaxHumanOpponents").val(maxGridSize-1);
+            $("#" + gameSession + "MaxHumanOpponents").val(maxGridSize);
         }
     },
 

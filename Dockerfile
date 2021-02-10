@@ -69,3 +69,11 @@ RUN chmod +x pc2ds.sh ams2ds.sh
 EXPOSE 9000 8766 8766/udp 27015 27015/udp 27016 27016/udp
 
 CMD "./${STEAM_APP}.sh"
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# FROM cm2network/steamcmd:root
+
+# RUN ls -la
+
+# CMD ["bash"]

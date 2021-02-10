@@ -6,6 +6,6 @@ services:
     build:
       args:
         servername: default
-    # environment:
-    #   - STEAM_APP=ams2ds
+    environment:
+      - STEAM_APP=ams2ds
     #   - SERVER_NAME=foca

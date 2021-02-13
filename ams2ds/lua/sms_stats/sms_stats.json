@@ -1,0 +1,13 @@
+// Addon version. Used only as informational value.
+version : [ 2, 0 ]
+
+// Addon description.
+description : "SMS sample addon - server, session and player stats tracking"
+
+// Required API version - major and minor number.
+// If the major number does not match exactly, the addon won't load.
+// If the required minor version is higher than the server's Lua API minor version, the addon won't load.
+apiVersion : [ 3, 0 ]
+
+// Lua files to load.
+files : [ "sms_stats.lua" ]

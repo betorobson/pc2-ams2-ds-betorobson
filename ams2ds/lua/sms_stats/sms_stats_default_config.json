@@ -1,0 +1,20 @@
+// Config version
+version : 2
+
+// Default configuration
+config : {
+
+	// Length limit for the history. Oldest sessions will be removed from the history.
+	// Use 0 to completely disable session history tracking.
+	// Use negative number for infinite history.
+	"history_length" : 50,
+
+	// Should the history track session events?
+	// If enabled, these participant event types will be tracked per stage:
+	// Lap, State, Impact, CutTrackStart, CutTrackEnd
+	"track_events" : false,
+
+	// Should the history track session results?
+	// If enabled, the Results participant events will be tracked per stage.
+	"track_results" : true,
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DevModeConfig>
+
+<!-- MAIN -->
+  <Option Dev_Mode="1" />
+
+  <!-- OneSock Log Levels -->
+  <Option Online_Log_OneSock="Info" />
+  <Option Online_Log_Socket="Info" />
+  <Option Online_Log_GameManager="Info" />
+  <Option Online_Log_GameManagerNetworking="Info" />
+  <Option Online_Log_MultiplayerService="Info" />
+  <Option Online_Log_HttpApi="Info" />
+  <Option Online_Log_CSProtocol="Info" />
+  <Option Online_Log_VoIP="Info" />
+
+  <!-- App server log levels -->
+  <Option DS_Log_General="Info" />
+
+</DevModeConfig>

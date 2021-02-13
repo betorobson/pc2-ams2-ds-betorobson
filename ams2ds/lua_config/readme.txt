@@ -1,0 +1,1 @@
+This is the default directory where the server stores modified addon config files if it's run from the root installation directory with no command-line arguments and with the sample config. You can change this location in the config file, the value is called luaConfigRoot

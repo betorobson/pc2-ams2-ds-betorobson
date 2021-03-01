@@ -44,13 +44,13 @@ WORKDIR "/app"
 COPY ams2ds.sh .
 COPY pc2ds.sh .
 COPY pc2ds.tar.gz .
-COPY ams2ds.30012021.tar.gz .
+COPY ams2ds.20210301.tar.gz .
 
 RUN tar -zxf pc2ds.tar.gz && \
     rm pc2ds.tar.gz
 
-RUN tar -zxf ams2ds.30012021.tar.gz && \
-    rm ams2ds.30012021.tar.gz
+RUN tar -zxf ams2ds.20210301.tar.gz && \
+    rm ams2ds.20210301.tar.gz
 
 COPY ams2ds-pc2ds-betorobson/ /app/pc2ds/
 COPY ams2ds-pc2ds-betorobson/ /app/ams2ds/
